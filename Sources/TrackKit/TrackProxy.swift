@@ -120,7 +120,7 @@ public class TrackProxy {
             offset.y = min(max(0, offset.y), maxOffsetY)
         }
         
-        scroll(to: offset, animation: animation)
+        track(to: offset, animation: animation)
     }
     
     var overflow: CGSize {
