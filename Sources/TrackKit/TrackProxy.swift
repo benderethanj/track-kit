@@ -54,6 +54,8 @@ public class TrackProxy {
     ) {
         guard let rect = positions[id] else { return }
         
+        print(rect)
+        
         let width: CGFloat = rect.width
         let height: CGFloat = rect.height
         
