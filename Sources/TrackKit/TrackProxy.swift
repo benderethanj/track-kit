@@ -27,7 +27,7 @@ public class TrackProxy {
     
     var axis: Axis.Set
     var direction: TrackDirection
-    var positions: [AnyHashable: CGRect] = [:]
+    public var positions: [AnyHashable: CGRect] = [:]
     
     var friction: CGFloat
     var resistance: CGFloat
@@ -53,8 +53,6 @@ public class TrackProxy {
         animation: Animation? = .default
     ) {
         guard let rect = positions[id] else { return }
-        
-        print(rect)
         
         let width: CGFloat = rect.width
         let height: CGFloat = rect.height
