@@ -10,7 +10,7 @@ struct DemoView: View {
                     MessageView(message: message, proxy: proxy)
                         .id(message)
                     .onTapGesture {
-                        proxy.track(to: message, alignment: .top, anchor: .top)
+                        proxy.track(to: message, alignment: .top, anchor: .bottom)
                     }
                 }
             }
