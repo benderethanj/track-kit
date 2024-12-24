@@ -1,7 +1,7 @@
 import SwiftUI
 
 public extension TrackProxy {
-    func scroll(to offset: CGPoint, animation: Animation? = .default) {
+    func track(to offset: CGPoint, animation: Animation? = .default) {
         self.drag?.velocity = .zero
         self.drag?.acceleration = .zero
         withAnimation(animation) {
@@ -10,7 +10,7 @@ public extension TrackProxy {
         }
     }
     
-    func scroll(by offset: CGSize, animation: Animation? = .default) {
+    func track(by offset: CGSize, animation: Animation? = .default) {
         withAnimation(animation) {
             self.offset.width += offset.width
             self.offset.height += offset.height
@@ -45,8 +45,8 @@ public class TrackProxy {
         direction == .normal ? 1 : -1
     }
 
-    func scrollTo(
-        _ id: AnyHashable,
+    func track(
+        to id: AnyHashable,
         alignment: TrackSet = .center,
         anchor: TrackSet = .center,
         restricted: Bool = true,
