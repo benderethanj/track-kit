@@ -46,7 +46,7 @@ public class TrackProxy {
     }
 
     public func track(
-        to id: AnyHashable,
+        to id: String,
         alignment: TrackSet = .center,
         anchor: TrackSet = .center,
         restricted: Bool = true,
