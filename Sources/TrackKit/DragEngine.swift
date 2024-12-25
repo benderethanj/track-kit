@@ -46,14 +46,18 @@ public class DragEngine {
                     let dv: CGSize = (velocity - self.velocity).limit(to: self.proxy.axis)
                     
                     let acceleration = dv / dt
-                    self.acceleration = acceleration
+                    withAnimation {
+                        self.acceleration = acceleration
+                    }
                     
                 } else {
                     
                     if abs(self.velocity.width) < 1 { self.velocity.width = 0 }
                     if abs(self.velocity.height) < 1 { self.velocity.height = 0 }
                     
-                    self.acceleration = .init(width: self.velocity.width, height: self.velocity.height).limit(to: self.proxy.axis) * -friction
+                    withAnimation {
+                        self.acceleration = .init(width: self.velocity.width, height: self.velocity.height).limit(to: self.proxy.axis) * -friction
+                    }
                     
                     if self.proxy.overflow != .zero {
                         withAnimation(.bouncy) {
