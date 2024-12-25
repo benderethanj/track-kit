@@ -20,21 +20,21 @@ public extension TrackProxy {
 
 @Observable
 public class TrackProxy {
-    var offset: CGSize = .zero
+    public var offset: CGSize = .zero
     
-    var frame: CGRect = .zero
-    var size: CGSize = .zero
+    public var frame: CGRect = .zero
+    public var size: CGSize = .zero
     
-    var axis: Axis.Set
-    var direction: TrackDirection
+    public var axis: Axis.Set
+    public var direction: TrackDirection
     public var positions: [AnyHashable: CGRect] = [:]
     
-    var friction: CGFloat
-    var resistance: CGFloat
+    public var friction: CGFloat
+    public var resistance: CGFloat
     
-    var drag: DragEngine?
+    public var drag: DragEngine?
 
-    init(axis: Axis.Set = .vertical, direction: TrackDirection = .normal, friction: CGFloat = 1, resistance: CGFloat = 1) {
+    public init(axis: Axis.Set = .vertical, direction: TrackDirection = .normal, friction: CGFloat = 1, resistance: CGFloat = 1) {
         self.axis = axis
         self.direction = direction
         self.friction = friction
