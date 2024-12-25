@@ -25,7 +25,7 @@ struct PositionTrackingModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func track(_ id: String) -> some View {
         self.modifier(PositionTrackingModifier(id: id))
     }
