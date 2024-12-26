@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension CGSize {
+public extension CGSize {
     static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
@@ -36,7 +36,7 @@ extension CGSize {
     }
 }
 
-extension CGPoint {
+public extension CGPoint {
     static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
@@ -72,7 +72,7 @@ extension CGPoint {
     }
 }
 
-func sign(_ value: Double) -> Double {
+public func sign(_ value: Double) -> Double {
     if value == 0 { return 0 } else { return value / abs(value) }
 }
 
