@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SizeReader<Content: View>: View {
+public struct SizeReader<Content: View>: View {
     @Binding var size: CGSize
     let content: () -> Content
     
@@ -9,7 +9,7 @@ struct SizeReader<Content: View>: View {
         self.content = content
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             content()
                 .background(
@@ -27,7 +27,7 @@ struct SizeReader<Content: View>: View {
     }
 }
 
-struct FrameReader<Content: View>: View {
+public struct FrameReader<Content: View>: View {
     @Binding var frame: CGRect
     let space: CoordinateSpaceProtocol
     let content: () -> Content
@@ -38,7 +38,7 @@ struct FrameReader<Content: View>: View {
         self.content = content
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             content()
                 .background(
@@ -77,7 +77,7 @@ struct ShowModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func show(_ bool: Bool) -> some View {
         modifier(ShowModifier(show: bool))
     }
@@ -93,7 +93,7 @@ struct SizeReaderModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func size(_ size: Binding<CGSize>) -> some View {
         modifier(SizeReaderModifier(size: size))
     }
@@ -121,7 +121,7 @@ struct FrameReaderModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func frame(_ frame: Binding<CGRect>, in space: CoordinateSpaceProtocol = .global) -> some View {
         modifier(FrameReaderModifier(frame: frame, space: space))
     }
