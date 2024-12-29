@@ -50,6 +50,7 @@ public struct FrameReader<Content: View>: View {
         }
         .onPreferenceChange(FramePreferenceKey.self) { preferences in
             DispatchQueue.main.async {
+                print("Updating frame to \(preferences)")
                 self.frame = preferences
             }
         }
