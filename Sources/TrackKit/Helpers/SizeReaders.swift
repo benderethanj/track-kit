@@ -38,6 +38,8 @@ public struct FrameReader<Content: View>: View {
         self.content = content
     }
     
+    @State private var lastFrameUpdate: TimeInterval = 0
+    
     public var body: some View {
         ZStack {
             content()
@@ -50,8 +52,12 @@ public struct FrameReader<Content: View>: View {
         }
         .onPreferenceChange(FramePreferenceKey.self) { preferences in
             DispatchQueue.main.async {
-                print("Updating frame to \(preferences)")
-                self.frame = preferences
+                let currentTime = Date().timeIntervalSince1970
+                
+                if currentTime - lastFrameUpdate > 0.1 {
+                    lastFrameUpdate = currentTime
+                    self.frame = preferences
+                }
             }
         }
     }
